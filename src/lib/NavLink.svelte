@@ -2,6 +2,7 @@
   import { goto } from "$app/navigation"
   export let path: string;
   export let text: string;
+  import "./fonts.css"
 </script>
 
 <div>
@@ -17,7 +18,7 @@
   button {
     border: none;
     color: white;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 1.25rem;
     padding: 0.5rem 1rem;
     background-color: inherit;
