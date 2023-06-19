@@ -40,6 +40,8 @@
 <style lang="scss">
   div.navbar-container {
     display: flex;
+    padding-top: 0.5rem;
+    align-items: center;
     position: sticky;
     background-color: #415D43;
 
@@ -52,6 +54,7 @@
     .center-nav {
       display: flex;
       flex: 2 0 0;
+      margin-right: 8rem;
       justify-content: end;
     }
 

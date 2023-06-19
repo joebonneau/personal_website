@@ -1,5 +1,6 @@
 <script>
   import NavBar from "$lib/NavBar.svelte";
+  import LeftSidebar from "$lib/blog/LeftSidebar.svelte";
   import RightSidebar from "$lib/blog/RightSidebar.svelte";
   import "../../lib/fonts.css"
 </script>
@@ -7,7 +8,7 @@
 <NavBar />
 <div class="outer-container">
     <div class="left-sidebar">
-        text
+        <LeftSidebar />
     </div>
     <div class="middle">
         <p class="blog-title">Post Title</p>
@@ -43,10 +44,9 @@
       flex-direction: row;
     }
 
-    .left-sidebar, .right-sidebar {
+    .right-sidebar {
       display: flex;
       flex-direction: column;
-      
     }
 
     .left-sidebar {
@@ -64,10 +64,16 @@
       border-radius: 0.25rem;
       border-left: 1px;
       border-right: 1px;
-      height: 100vh;
+      height: 100%;
       flex: 0.4 1 0;
       padding: 0 1rem;
       text-align: justify;
+      // max-height: calc(100vh - 100px);
+      overflow: auto;
+      // TODO: revisit
+      // position: relative;
+      // z-index: 10;
+      // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
         .blog-title {
           font-weight: 800;
