@@ -12,22 +12,29 @@
 </div>
 
 <style lang="scss">
+
+* {
+    font-family: "Roboto Mono";
+  }
   div {
     background-color: inherit;
   }
   button {
     border: none;
-    color: white;
-    font-weight: 600;
-    font-size: 1.25rem;
+    color: #000;
+    font-weight: 500;
+    font-size: 1rem;
     padding: 0.5rem 1rem;
     background-color: inherit;
-    // background-color: #709775; 
+    transform: translateY(0);
+    transition: color, transform 0.2s ease-out;
+    
   }
 
   button:hover {
-    background-color: #709775;
-    transition: background-color 0.15s ease-in-out;
+    color: #D17B0F;
+    transform: translateY(-5%);
+    transition: color, transform 0.20s ease-in;
     cursor: pointer;
   }
 </style>
