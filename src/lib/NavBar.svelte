@@ -14,30 +14,32 @@
 
   const menuOptions = [
     ["Home", "/"],
-    ["About", "/about"],
-    ["Experience", "/experience"],
-    ["Blog", "/blog"],
+    ["About", "#about"],
+    ["Experience", "#experience"],
+    ["Blog", "#blog"],
   ];
 </script>
 
-<div 
-  class="navbar-container"
->
+<div class="navbar-container">
   <div class="left-nav">
-      <!-- TODO: align to body of page, animate icons, make links -->
+    <!-- TODO: align to body of page, animate icons, make links -->
+    <a href="https://www.github.com/joebonneau" target="_blank" rel="noreferrer">
       <span><GithubIcon /></span>
+    </a>
+    <a href="https://www.linkedin.com/in/joebonneau" target="_blank" rel="noreferrer">
       <span><LinkedInIcon /></span>
+    </a>
   </div>
   <div class="center-nav">
     
+    <!-- {#each menuOptions as [name, route]}
+      <NavLink path={route} text={name} />
+    {/each} -->
+  </div>
+  <div class="right-nav">
     {#each menuOptions as [name, route]}
       <NavLink path={route} text={name} />
     {/each}
-  </div>
-  <div class="right-nav">
-    <!-- {#each menuOptions as [name, route]}
-      <NavLink path={route} text={name.toUpperCase()} />
-    {/each} -->
   </div>
 </div>
 
@@ -45,16 +47,19 @@
 
   div.navbar-container {
     display: flex;
-    padding-top: 0.5rem;
+    padding: 0.75rem 0;
     align-items: center;
     position: sticky;
+    top: 0;
+    z-index: 10;
     background-color: #4F646F;
 
     .left-nav {
       display: flex;
       gap: 1.5rem;
       flex: 1.3 1 0;
-      justify-content: end;
+      margin-left: 16rem;
+      justify-content: start;
       align-content: center;
     }
 
@@ -68,13 +73,14 @@
     .right-nav {
       display: flex;
       flex: 0.6 1 0;
+      margin-right: 16rem;
       justify-content: end;
     }
   }
 
   span {
-    width: 25px;
-    height: 25px;
+    max-width: 25px;
+    max-height: 25px;
   }
 
 </style>

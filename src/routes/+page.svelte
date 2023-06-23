@@ -35,12 +35,33 @@
       }
     })
   })
+
+  // TODO: need to figure out how to pass the clicked element (from NavBar)
+  // to here to use this
+  // also, use Svelte binding directives instead of all vanilla JS
+
+  // function scrollTo(to: Element, duration: number) {
+  //   const dest = document.getElementById(elID);
+  //   if (document.body.scrollTop == to) return;
+  //   var diff = to - document.body.scrollTop;
+  //   var scrollStep = Math.PI / (duration / 10);
+  //   var count = 0, currPos;
+  //   start = element.scrollTop;
+  //   scrollInterval = setInterval(function(){
+  //       if (document.body.scrollTop != to) {
+  //           count = count + 1;
+  //           currPos = start + diff * (0.5 - 0.5 * Math.cos(count * scrollStep));
+  //           document.body.scrollTop = currPos;
+  //       }
+  //       else { clearInterval(scrollInterval); }
+  //   },10);
+// }
   
 </script>
 
 <NavBar />
 
-<section>
+<section id="top">
   <h1 class="hidden" bind:this={sectionsArray[0]}>
     Hi, my name is
   </h1>
@@ -59,17 +80,13 @@
   </div>
 </section>
 
-<section>
+<section id="about">
   <img src="../dummy_300x300.png" alt="Joe Bonneau"/>
 </section>
 
-<!-- <section class="hidden" bind:this={sectionsArray[1]}>
- 
-</section>
-
-<section class="hidden" bind:this={sectionsArray[2]}>
+<section id="experience" class="hidden" bind:this={sectionsArray[4]}>
   <h1>more stuff</h1>
-</section> -->
+</section>
 
 <style lang="scss">
   div {
@@ -155,7 +172,7 @@
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
-    transition: all ease-in 0.75s;
+    transition: all ease-in 1.1s;
     transition-property: opacity, filter, transform;
   }
 
