@@ -1,47 +1,38 @@
 <script lang="ts">
-  import { onMount, tick } from "svelte";
   import NavLink from "./NavLink.svelte";
   import GithubIcon from "./GithubIcon.svelte";
   import LinkedInIcon from "./LinkedInIcon.svelte";
+  import type { Route } from "./types";
 
-  export let top: Element;
-  export let about: Element;
-  export let experience: Element;
-  let menuOptions: Array<Array<string | Element | null>> = [];
-
-  onMount(async () => {
-    await tick();
-    menuOptions = [
-      ["Home", "/", top],
-      ["About", "#about", about],
-      ["Experience", "#experience", experience],
-      ["Blog", "blog", null],
-    ];
-  })
-  
+  export let menuOptions: Route[] = [];
 </script>
 
 <div class="navbar-container">
   <div class="left-nav">
-    <!-- TODO: align to body of page, animate icons, make links -->
-    <a href="https://www.github.com/joebonneau" target="_blank" rel="noreferrer">
+    <a
+      href="https://www.github.com/joebonneau"
+      target="_blank"
+      rel="noreferrer"
+    >
       <span><GithubIcon /></span>
     </a>
-    <a href="https://www.linkedin.com/in/joebonneau" target="_blank" rel="noreferrer">
+    <a
+      href="https://www.linkedin.com/in/joebonneau"
+      target="_blank"
+      rel="noreferrer"
+    >
       <span><LinkedInIcon /></span>
     </a>
   </div>
-  <div class="center-nav">
-  </div>
+  <div class="center-nav" />
   <div class="right-nav">
-    {#each menuOptions as [name, route, element]}
-      <NavLink path={route} text={name} {element} />
+    {#each menuOptions as { name, path, element }}
+      <NavLink {path} text={name} {element} />
     {/each}
   </div>
 </div>
 
 <style lang="scss">
-
   div.navbar-container {
     display: flex;
     height: 50px;
@@ -49,7 +40,7 @@
     position: sticky;
     top: 0;
     z-index: 10;
-    background-color: #4F646F;
+    background-color: #4f646f;
 
     .left-nav {
       display: flex;
@@ -79,5 +70,4 @@
     max-width: 25px;
     max-height: 25px;
   }
-
 </style>

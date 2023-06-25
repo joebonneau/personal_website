@@ -2,27 +2,26 @@
   export let path: string;
   export let text: string;
   export let element: Element | null;
-  import "./fonts.css"
+  import "./fonts.css";
 
   const scrollIntoViewWithOffset = (element: Element, offset: number = 50) => {
     window.scrollTo({
-      behavior: 'smooth',
+      behavior: "smooth",
       top:
         element.getBoundingClientRect().top -
         document.body.getBoundingClientRect().top -
         offset,
-    })
-  }
+    });
+  };
 
   const onClick = (e: Event) => {
-    console.log({element})
+    console.log({ element });
     e.preventDefault();
     if (element !== null) {
       // element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-      scrollIntoViewWithOffset(element)
+      scrollIntoViewWithOffset(element);
     }
-  }
-
+  };
 </script>
 
 {#if element !== null}
@@ -40,7 +39,6 @@
 {/if}
 
 <style lang="scss">
-
   * {
     font-family: "Roboto Mono";
   }
@@ -50,7 +48,8 @@
     border: none;
   }
 
-  a, button {
+  a,
+  button {
     color: #000;
     text-decoration: none;
     font-weight: 500;
@@ -60,7 +59,7 @@
     transition: color, transform 0.2s ease-out;
 
     &:hover {
-      color: #D17B0F;
+      color: #d17b0f;
       transform: translateY(-5%);
       transition: color, transform 0.2s ease-in;
       cursor: pointer;

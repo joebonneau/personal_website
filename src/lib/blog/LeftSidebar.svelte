@@ -6,17 +6,17 @@
 <div>
   <ul>
     <li>
-      <a 
+      <a
         href="https://www.github.com/joebonneau"
         aria-label="GitHub"
-        target="_blank" 
+        target="_blank"
         rel="noreferrer"
       >
         <GithubIcon />
       </a>
     </li>
     <li>
-      <a 
+      <a
         href="https://www.linkedin.com/in/joebonneau"
         aria-label="LinkedIn"
         target="_blank"
@@ -50,14 +50,14 @@
 
       ::after {
         position: fixed;
-      bottom: 0;
-      content: "";
-      display: block;
-      width: 1px;
-      height: 90px;
-      margin: 0px auto;
-      background-color: white;
-    }
+        bottom: 0;
+        content: "";
+        display: block;
+        width: 1px;
+        height: 90px;
+        margin: 0px auto;
+        background-color: white;
+      }
     }
 
     a {
@@ -72,6 +72,5 @@
     left: 40px;
     right: auto;
     z-index: 10;
-
   }
 </style>
