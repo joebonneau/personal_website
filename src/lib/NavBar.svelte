@@ -1,23 +1,24 @@
 <script lang="ts">
-  // import sticky from "./sticky.js"
-  import User from "./user-solid.svelte"
+  import { onMount, tick } from "svelte";
   import NavLink from "./NavLink.svelte";
   import GithubIcon from "./GithubIcon.svelte";
   import LinkedInIcon from "./LinkedInIcon.svelte";
 
-  // export let stickToTop = true;
-  // let isStuck = false;
+  export let top: Element;
+  export let about: Element;
+  export let experience: Element;
+  let menuOptions: Array<Array<string | Element | null>> = [];
 
-  // function handleStuck(e: CustomEvent) {
-  //   isStuck = e.detail.isStuck;
-  // }
-
-  const menuOptions = [
-    ["Home", "/"],
-    ["About", "#about"],
-    ["Experience", "#experience"],
-    ["Blog", "#blog"],
-  ];
+  onMount(async () => {
+    await tick();
+    menuOptions = [
+      ["Home", "/", top],
+      ["About", "#about", about],
+      ["Experience", "#experience", experience],
+      ["Blog", "blog", null],
+    ];
+  })
+  
 </script>
 
 <div class="navbar-container">
@@ -31,14 +32,10 @@
     </a>
   </div>
   <div class="center-nav">
-    
-    <!-- {#each menuOptions as [name, route]}
-      <NavLink path={route} text={name} />
-    {/each} -->
   </div>
   <div class="right-nav">
-    {#each menuOptions as [name, route]}
-      <NavLink path={route} text={name} />
+    {#each menuOptions as [name, route, element]}
+      <NavLink path={route} text={name} {element} />
     {/each}
   </div>
 </div>
@@ -47,7 +44,7 @@
 
   div.navbar-container {
     display: flex;
-    padding: 0.75rem 0;
+    height: 50px;
     align-items: center;
     position: sticky;
     top: 0;
@@ -58,7 +55,7 @@
       display: flex;
       gap: 1.5rem;
       flex: 1.3 1 0;
-      margin-left: 16rem;
+      margin-left: clamp(100px, 16rem, 10svw);
       justify-content: start;
       align-content: center;
     }
